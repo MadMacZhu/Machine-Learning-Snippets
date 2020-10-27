@@ -1,4 +1,4 @@
-# Artificial Neural Network
+# Deep Neural Network
 
 
 # Part 1 - Data Preprocessing
@@ -34,7 +34,7 @@ sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
-# Part 2 - Now let's make the ANN!
+# Part 2 - Now let's make the DNN
 
 # Importing the Keras libraries and packages
 import keras
@@ -44,7 +44,7 @@ from keras.layers import LeakyReLU,PReLU,ELU
 from keras.layers import Dropout
 
 
-# Initialising the ANN
+# Initialising the DNN
 classifier = Sequential()
 
 # Adding the input layer and the first hidden layer
@@ -55,10 +55,10 @@ classifier.add(Dense(output_dim = 6, init = 'he_uniform',activation='relu'))
 # Adding the output layer
 classifier.add(Dense(output_dim = 1, init = 'glorot_uniform', activation = 'sigmoid'))
 
-# Compiling the ANN
+# Compiling the DNN
 classifier.compile(optimizer = 'Adamax', loss = 'binary_crossentropy', metrics = ['accuracy'])
 
-# Fitting the ANN to the Training set
+# Fitting the DNN to the Training set
 model_history=classifier.fit(X_train, y_train,validation_split=0.33, batch_size = 10, nb_epoch = 100)
 
 # list all data in history
